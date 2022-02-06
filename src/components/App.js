@@ -11,7 +11,7 @@ class App extends Component {
   };
   componentDidMount() {
     GetTweets().then(res => {
-      this.setState({ Tweets: res.data.data.tweets });
+      this.setState({ Tweets: res.data.data.tweets.reverse() });
     });
   }
 
