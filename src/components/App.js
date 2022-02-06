@@ -2,12 +2,19 @@ import React, { Component } from "react";
 import Header from "./Bootstrap/Header";
 import Tweets from "./Tweets";
 import User from "./User";
+import { GetTweets } from "../services/TweetService";
 
 class App extends Component {
   state = {
     CurrentUser: null,
     Tweets: []
   };
+  componentDidMount() {
+    GetTweets().then(res => {
+      this.setState({ Tweets: res.data.data.tweets });
+    });
+  }
+
   handleSignIn = CurrentUser => {
     this.setState({ CurrentUser });
   };

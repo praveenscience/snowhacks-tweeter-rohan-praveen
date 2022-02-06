@@ -3,7 +3,7 @@ const Tweets = ({ tweets }) => {
     <div className="Tweets">
       {tweets && tweets.length > 0 ? (
         tweets.map(tweet => (
-          <div className="media border p-2 rounded" key={tweet._id}>
+          <div className="media border p-2 rounded mb-2" key={tweet._id}>
             <img
               src={tweet.authorImg}
               className="mr-2 border rounded p-1"
