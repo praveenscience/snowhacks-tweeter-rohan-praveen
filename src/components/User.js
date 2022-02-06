@@ -6,14 +6,40 @@ const User = ({ CurrentUser, handleSignIn }) => {
   const [author, setAuthor] = useState("");
   const [authorEmail, setAuthorEmail] = useState("");
   const [authorImg, setAuthorImg] = useState("");
+  const [tweetMessage, setTweet] = useState("");
   const handleSubmit = e => {
     e.preventDefault();
     handleSignIn({ author, authorEmail, authorImg });
   };
+  const handleSendTweet = e => {
+    e.preventDefault();
+    console.log({ ...CurrentUser, tweetMessage });
+  };
   return (
     <div className="User">
       {CurrentUser ? (
-        "Logged In"
+        <form onSubmit={handleSendTweet}>
+          <div className="media">
+            <img
+              src={CurrentUser.authorImg}
+              className="mr-3 border rounded p-1"
+              width={100}
+              alt={CurrentUser.author}
+            />
+            <div className="media-body">
+              <h5 className="mt-0">{CurrentUser.author}</h5>
+              <textarea
+                className="form-control mb-3"
+                placeholder="Say Something..."
+                value={tweetMessage}
+                onChange={e => {
+                  setTweet(e.target.value);
+                }}
+              />
+              <input type="submit" value="Tweet" className="btn btn-primary" />
+            </div>
+          </div>
+        </form>
       ) : (
         <form onSubmit={handleSubmit}>
           <FormGroup

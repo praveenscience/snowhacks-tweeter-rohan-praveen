@@ -18,13 +18,13 @@ class App extends Component {
         </Header>
         <div className="container">
           <div className="row">
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-5">
               <User
                 CurrentUser={this.state.CurrentUser}
                 handleSignIn={this.handleSignIn}
               />
             </div>
-            <div className="col-12 col-md-9">
+            <div className="col-12 col-md-7">
               <Tweets />
             </div>
           </div>
