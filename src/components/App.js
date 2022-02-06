@@ -13,6 +13,11 @@ class App extends Component {
     GetTweets().then(res => {
       this.setState({ Tweets: res.data.data.tweets.reverse() });
     });
+    setInterval(() => {
+      GetTweets().then(res => {
+        this.setState({ Tweets: res.data.data.tweets.reverse() });
+      });
+    }, 3000);
   }
 
   handleSignIn = CurrentUser => {
