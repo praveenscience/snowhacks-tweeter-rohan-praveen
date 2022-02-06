@@ -1,9 +1,11 @@
-import React from "react";
+import Header from "./Bootstrap/Header";
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Learn React</h1>
+      <Header className="Header justify-content-center" dark={true}>
+        Tweetinator
+      </Header>
     </div>
   );
 };
