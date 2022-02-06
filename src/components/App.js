@@ -4,7 +4,9 @@ import Tweets from "./Tweets";
 import User from "./User";
 
 class App extends Component {
-  state = {};
+  state = {
+    CurrentUser: null
+  };
   render() {
     return (
       <div className="App">
@@ -14,7 +16,7 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-3">
-              <User />
+              <User CurrentUser={this.state.CurrentUser} />
             </div>
             <div className="col-12 col-md-9">
               <Tweets />
