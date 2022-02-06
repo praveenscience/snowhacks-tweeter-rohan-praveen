@@ -10,16 +10,16 @@ class App extends Component {
     Tweets: []
   };
   componentDidMount() {
+    this.UpdateTweets();
+    setInterval(() => {
+      this.UpdateTweets();
+    }, 3000);
+  }
+  UpdateTweets = () => {
     GetTweets().then(res => {
       this.setState({ Tweets: res.data.data.tweets.reverse() });
     });
-    setInterval(() => {
-      GetTweets().then(res => {
-        this.setState({ Tweets: res.data.data.tweets.reverse() });
-      });
-    }, 3000);
-  }
-
+  };
   handleSignIn = CurrentUser => {
     this.setState({ CurrentUser });
   };
@@ -35,6 +35,7 @@ class App extends Component {
               <User
                 CurrentUser={this.state.CurrentUser}
                 handleSignIn={this.handleSignIn}
+                UpdateTweets={this.UpdateTweets}
               />
             </div>
             <div className="col-12 col-md-7">

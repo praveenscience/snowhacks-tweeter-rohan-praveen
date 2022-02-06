@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PostTweet } from "../services/TweetService";
 import FormGroup from "./Bootstrap/FormGroup";
 
 const User = ({ CurrentUser, handleSignIn }) => {
@@ -13,7 +14,9 @@ const User = ({ CurrentUser, handleSignIn }) => {
   };
   const handleSendTweet = e => {
     e.preventDefault();
-    console.log({ ...CurrentUser, tweetMessage });
+    PostTweet({ ...CurrentUser, tweetMessage }).then(() => {
+      setTweet("");
+    });
   };
   return (
     <div className="User">
