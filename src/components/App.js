@@ -7,6 +7,9 @@ class App extends Component {
   state = {
     CurrentUser: null
   };
+  handleSignIn = CurrentUser => {
+    this.setState({ CurrentUser });
+  };
   render() {
     return (
       <div className="App">
@@ -16,7 +19,10 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-3">
-              <User CurrentUser={this.state.CurrentUser} />
+              <User
+                CurrentUser={this.state.CurrentUser}
+                handleSignIn={this.handleSignIn}
+              />
             </div>
             <div className="col-12 col-md-9">
               <Tweets />
