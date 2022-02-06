@@ -5,7 +5,8 @@ import User from "./User";
 
 class App extends Component {
   state = {
-    CurrentUser: null
+    CurrentUser: null,
+    Tweets: []
   };
   handleSignIn = CurrentUser => {
     this.setState({ CurrentUser });
@@ -25,7 +26,7 @@ class App extends Component {
               />
             </div>
             <div className="col-12 col-md-7">
-              <Tweets />
+              <Tweets tweets={this.state.Tweets} />
             </div>
           </div>
         </div>
